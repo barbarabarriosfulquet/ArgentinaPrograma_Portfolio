@@ -1,0 +1,13 @@
+.row {
+    padding: 5px;
+    background-color: #6E7075;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    text-align: center;
+    margin: 0px;
+}
