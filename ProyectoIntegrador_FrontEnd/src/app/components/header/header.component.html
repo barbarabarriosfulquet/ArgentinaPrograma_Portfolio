@@ -18,7 +18,8 @@
             <h2>Full Stack Developer Jr.</h2>
         </div>
         <div class="col-2">
-            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="login()">INGRESAR</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="login()" *ngIf="!isLogged">INGRESAR</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="logout()" *ngIf="isLogged">CERRAR SESIÓN</button>
         </div>
     </div>
 </div>
