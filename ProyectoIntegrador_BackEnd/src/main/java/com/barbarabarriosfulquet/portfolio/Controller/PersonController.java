@@ -4,6 +4,7 @@ import com.barbarabarriosfulquet.portfolio.Entity.Person;
 import com.barbarabarriosfulquet.portfolio.Interface.IntPersonService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,18 +25,21 @@ public class PersonController {
         return intpersonService.getPerson();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/persons/create")
     public String createPerson(@RequestBody Person person){
         intpersonService.savePerson(person);
         return "El registro ha sido exitoso";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/persons/delete/{id}")
     public String deletePerson(@PathVariable Long id){
     intpersonService.deletePerson(id);
-    return "La eliminación ha sido existosa";
+    return "La eliminación ha sido exitosa";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/persons/edit/{id}")
     public Person editPerson(@PathVariable Long id,
             @RequestParam("name") String newName,
