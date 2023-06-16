@@ -55,6 +55,6 @@ public class PersonController {
     
     @GetMapping("/persons/get/profile")
     public Person findPerson(){
-        return intpersonService.findPerson((long)15);
+        return intpersonService.findPerson((long)1);
     }
 }

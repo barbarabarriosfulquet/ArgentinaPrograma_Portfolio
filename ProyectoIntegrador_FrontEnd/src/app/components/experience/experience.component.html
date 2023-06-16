@@ -1,28 +1,31 @@
 <div class="container-fluid">
     <div class="row">
         <h1>EXPERIENCIA LABORAL</h1>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-outline-secondary btn-sm" routerLink="/newExperience"
+                *ngIf="isLogged">NUEVA EXPERIENCIA</button>
+        </div>
         <hr class="custom-divider">
         <div class="col-12">
-            <ul>
-                <li><h2>Experiencia 1º</h2></li>
-                <h3>Período</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus omnis dolores animi, recusandae,
-                    amet
-                    ducimus, neque vero error velit accusamus suscipit sapiente aliquam atque rerum fugit ea magni eaque
-                    tempora!</p>
-                <li><h2>Experiencia 2º</h2></li>
-                <h3>Período</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus omnis dolores animi, recusandae,
-                    amet
-                    ducimus, neque vero error velit accusamus suscipit sapiente aliquam atque rerum fugit ea magni eaque
-                    tempora!</p>
-                <li><h2>Experiencia 3º</h2></li>
-                <h3>Período</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus omnis dolores animi, recusandae,
-                    amet
-                    ducimus, neque vero error velit accusamus suscipit sapiente aliquam atque rerum fugit ea magni eaque
-                    tempora!</p>
-            </ul>
+            <table class="table">
+                <tbody>
+                    <tr *ngFor="let Experience of experience">
+                        <td>
+                            <h2>{{Experience.nameExp}}</h2>
+                        </td>
+                        <td>{{Experience.descriptionExp}}</td>
+                        <td *ngIf="isLogged">
+                            <button class="btn btn-outline-secondary btn-sm"
+                                routerLink="/editExperience/{{Experience.id}}">
+                                <i class="bi bi-pencil-fill"></i></button>
+                        </td>
+                        <td *ngIf="isLogged">
+                            <button class="btn btn-outline-secondary btn-sm" (click)="delete(Experience.id)">
+                                <i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
