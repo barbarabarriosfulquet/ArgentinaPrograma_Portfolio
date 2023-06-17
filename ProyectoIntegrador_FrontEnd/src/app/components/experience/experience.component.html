@@ -1,31 +1,45 @@
 <div class="container-fluid">
-    <div class="row">
-        <h1>EXPERIENCIA LABORAL</h1>
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-outline-secondary btn-sm" routerLink="/newExperience"
-                *ngIf="isLogged">NUEVA EXPERIENCIA</button>
-        </div>
-        <hr class="custom-divider">
-        <div class="col-12">
-            <table class="table">
-                <tbody>
-                    <tr *ngFor="let Experience of experience">
-                        <td>
-                            <h2>{{Experience.nameExp}}</h2>
-                        </td>
-                        <td>{{Experience.descriptionExp}}</td>
-                        <td *ngIf="isLogged">
-                            <button class="btn btn-outline-secondary btn-sm"
-                                routerLink="/editExperience/{{Experience.id}}">
-                                <i class="bi bi-pencil-fill"></i></button>
-                        </td>
-                        <td *ngIf="isLogged">
-                            <button class="btn btn-outline-secondary btn-sm" (click)="delete(Experience.id)">
-                                <i class="bi bi-trash"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <div class="row">
+    <div *ngIf="!isLogged" class="col-lg-12">
+      <h1 class="text-center">EXPERIENCIA LABORAL</h1>
     </div>
+    <div *ngIf="isLogged" class="col-lg-11">
+      <h1 class="text-center">EXPERIENCIA LABORAL</h1>
+    </div>
+    <div *ngIf="isLogged" class="col-lg-1 d-flex align-items-center justify-content-end">
+      <button type="button" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        class="btn btn-outline-secondary btn-sm" routerLink="/newExperience" *ngIf="isLogged">
+        <i class="bi bi-plus-square"></i>
+      </button>
+    </div>
+    <hr class="custom-divider">
+    <div class="col-12">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let Experience of experience">
+            <td class="col-lg-3">
+              <h2>{{Experience.nameExp}}</h2>
+            </td>
+            <td class="col-lg-8">
+              <h3>{{Experience.descriptionExp}}</h3>
+            </td>
+            <td class="col-lg-1 custom-td" *ngIf="isLogged">
+              <div class="d-flex align-items-center justify-content-end">
+                <button class="btn btn-outline-secondary btn-sm"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  routerLink="/editExperience/{{Experience.id}}">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-left: 5px;"
+                  (click)="delete(Experience.id)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

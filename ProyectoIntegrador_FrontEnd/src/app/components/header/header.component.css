@@ -1,9 +1,16 @@
-/* BANNER */
+.row {
+    padding: 10px;
+    height: 140px;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
 .banner {
     display: flex;
     align-items: center;
     background-color: #6E7075;
-    padding: 10px;
+    padding: 5px;
 }
 
 #logo {
@@ -27,10 +34,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.row {
-    height: 140px;
 }
 
 .col-2,
@@ -69,7 +72,7 @@ h2 {
         height: 175px;
     }
 
-    #perfil {
+    #profile {
         width: 100px;
         height: 100px;
     }
