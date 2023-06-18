@@ -7,26 +7,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ExperienceService {
-  workexpURL = 'http://localhost:8080/workexp/'
+  experienceURL = 'http://localhost:8080/experience/'
   constructor(private httpClient: HttpClient) { }
 
   public list(): Observable<Experience[]> {
-    return this.httpClient.get<Experience[]>(this.workexpURL + 'list');
+    return this.httpClient.get<Experience[]>(this.experienceURL + 'list');
   }
 
   public detail(id: number): Observable<Experience> {
-    return this.httpClient.get<Experience>(this.workexpURL + `detail/${id}`);
+    return this.httpClient.get<Experience>(this.experienceURL + `detail/${id}`);
   }
 
   public save(experience: Experience): Observable<any> {
-    return this.httpClient.post<any>(this.workexpURL + 'create', experience);
+    return this.httpClient.post<any>(this.experienceURL + 'create', experience);
   }
 
   public update(id: number, experience: Experience): Observable<any> {
-    return this.httpClient.put<any>(this.workexpURL + `update/${id}`, experience);
+    return this.httpClient.put<any>(this.experienceURL + `update/${id}`, experience);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.workexpURL + `delete/${id}`);
+    return this.httpClient.delete<any>(this.experienceURL + `delete/${id}`);
   }
 }

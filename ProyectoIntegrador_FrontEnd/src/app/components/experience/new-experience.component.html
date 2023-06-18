@@ -3,13 +3,25 @@
         <div>
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="nameExp">NOMBRE DE LA EMPRESA</label>
-                    <input type="text" class="form-control" id="nameExp" name="nameExp" [(ngModel)]="nameExp" required>
+                    <label for="nameExperience">NOMBRE DE LA EMPRESA</label>
+                    <input type="text" class="form-control" id="nameExperience" name="nameExperience" [(ngModel)]="nameExperience" required>
                 </div>
                 <div class="form-group">
-                    <label for="descriptionExp">DESCRIPCIÓN DE TAREAS</label>
-                    <input type="text" class="form-control" id="descriptionExp" name="descriptionExp"
-                        [(ngModel)]="descriptionExp" required>
+                    <label for="titleExperience">TÍTULO POSICIÓN</label>
+                    <input type="text" class="form-control" id="titleExperience" name="titleExperience" [(ngModel)]="titleExperience" required>
+                </div>
+                <div class="form-group">
+                    <label for="yearExperience">PERÍODO</label>
+                    <input type="text" class="form-control" id="yearExperience" name="yearExperience" [(ngModel)]="yearExperience" required>
+                </div>
+                <div class="form-group">
+                    <label for="countryExperience">PAÍS</label>
+                    <input type="text" class="form-control" id="countryExperience" name="countryExperience" [(ngModel)]="countryExperience" required>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionExperience">DESCRIPCIÓN DE TAREAS</label>
+                    <input type="text" class="form-control" id="descriptionExperience" name="descriptionExperience"
+                        [(ngModel)]="descriptionExperience" required>
                 </div>
                 <button class="btn btn-outline-secondary btn-sm">
                     AGREGAR

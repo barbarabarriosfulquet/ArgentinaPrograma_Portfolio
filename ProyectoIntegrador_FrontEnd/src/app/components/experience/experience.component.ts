@@ -34,7 +34,7 @@ export class ExperienceComponent implements OnInit {
         data => {
           this.loadExperience();
         }, err => {
-          alert("No se pudo eliinar la experiencia");
+          alert("No se pudo eliminar la experiencia");
         }
       )
     }

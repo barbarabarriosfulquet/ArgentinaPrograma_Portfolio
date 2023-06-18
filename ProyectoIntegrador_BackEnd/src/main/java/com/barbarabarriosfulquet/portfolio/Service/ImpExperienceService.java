@@ -23,8 +23,8 @@ public class ImpExperienceService {
         return intExperienceRepository.findById(id);
     }
 
-    public Optional<Experience> getByNameExp(String nameExp) {
-        return intExperienceRepository.findByNameExp(nameExp);
+    public Optional<Experience> getByNameExperience(String nameExperience) {
+        return intExperienceRepository.findByNameExperience(nameExperience);
     }
 
     public void save(Experience expe) {
@@ -39,7 +39,7 @@ public class ImpExperienceService {
         return intExperienceRepository.existsById(id);
     }
 
-    public boolean existsByNameExp(String nameExp) {
-        return intExperienceRepository.existsByNameExp(nameExp);
+    public boolean existsByNameExperience(String nameExperience) {
+        return intExperienceRepository.existsByNameExperience(nameExperience);
     }
 }

@@ -1,29 +1,34 @@
 package com.barbarabarriosfulquet.portfolio.Entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Experience {
+public class Experience implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nameExp;
-    private String descriptionExp;
+    private String nameExperience;
+    private String titleExperience;
+    private String yearExperience;
+    private String countryExperience;
+    private String descriptionExperience;
 
-    //Constructores
     public Experience() {
     }
 
-    public Experience(String nameExp, String descriptionExp) {
-        this.nameExp = nameExp;
-        this.descriptionExp = descriptionExp;
+    public Experience(String nameExperience, String titleExperience, String yearExperience, String countryExperience, String descriptionExperience) {
+        this.nameExperience = nameExperience;
+        this.titleExperience = titleExperience;
+        this.yearExperience = yearExperience;
+        this.countryExperience = countryExperience;
+        this.descriptionExperience = descriptionExperience;
     }
 
-    //Getters and setters
     public int getId() {
         return id;
     }
@@ -32,19 +37,43 @@ public class Experience {
         this.id = id;
     }
 
-    public String getNameExp() {
-        return nameExp;
+    public String getNameExperience() {
+        return nameExperience;
     }
 
-    public void setNameExp(String nameExp) {
-        this.nameExp = nameExp;
+    public void setNameExperience(String nameExperience) {
+        this.nameExperience = nameExperience;
+    }
+    
+    public String getTitleExperience() {
+        return titleExperience;
     }
 
-    public String getDescriptionExp() {
-        return descriptionExp;
+    public void setTitleExperience(String nameExperience) {
+        this.titleExperience = nameExperience;
     }
 
-    public void setDescriptionExp(String descriptionExp) {
-        this.descriptionExp = descriptionExp;
+    public String getYearExperience() {
+        return yearExperience;
+    }
+
+    public void setYearExperience(String yearExperience) {
+        this.yearExperience = yearExperience;
+    }
+
+    public String getCountryExperience() {
+        return countryExperience;
+    }
+
+    public void setCountryExperience(String countryExperience) {
+        this.countryExperience = countryExperience;
+    }
+
+    public String getDescriptionExperience() {
+        return descriptionExperience;
+    }
+
+    public void setDescriptionExperience(String descriptionExperience) {
+        this.descriptionExperience = descriptionExperience;
     }
 }

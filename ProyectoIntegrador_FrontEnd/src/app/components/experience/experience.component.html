@@ -17,13 +17,22 @@
       <table class="table">
         <tbody>
           <tr *ngFor="let Experience of experience">
-            <td class="col-lg-3">
-              <h2>{{Experience.nameExp}}</h2>
+            <td class="col-auto">
+              <h2>{{Experience.nameExperience}}</h2>
             </td>
-            <td class="col-lg-8">
-              <h3>{{Experience.descriptionExp}}</h3>
+            <td class="col-1">
+              <h3>{{Experience.yearExperience}}</h3>
             </td>
-            <td class="col-lg-1 custom-td" *ngIf="isLogged">
+            <td class="col-auto">
+              <h3>{{Experience.countryExperience}}</h3>
+            </td>
+            <td class="col-auto">
+              <h3>{{Experience.titleExperience}}</h3>
+            </td>
+            <td class="col-5">
+              <h3>{{Experience.descriptionExperience}}</h3>
+            </td>
+            <td class="col-auto custom-td" *ngIf="isLogged">
               <div class="d-flex align-items-center justify-content-end">
                 <button class="btn btn-outline-secondary btn-sm"
                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"

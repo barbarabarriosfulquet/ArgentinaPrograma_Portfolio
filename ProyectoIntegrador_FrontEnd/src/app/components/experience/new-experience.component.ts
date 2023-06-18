@@ -8,9 +8,12 @@ import { ExperienceService } from 'src/app/service/experience.service';
   templateUrl: './new-experience.component.html',
   styleUrls: ['./new-experience.component.css']
 })
-export class NewExperienceComponent implements OnInit{
-  nameExp: string = '';
-  descriptionExp: string = '';
+export class NewExperienceComponent implements OnInit {
+  nameExperience: string = '';
+  titleExperience: string = '';
+  countryExperience: any;
+  yearExperience: any;
+  descriptionExperience: string = '';
 
   constructor(private experienceService: ExperienceService, private router: Router) { }
 
@@ -18,7 +21,7 @@ export class NewExperienceComponent implements OnInit{
   }
 
   onCreate(): void {
-    const newExperience = new Experience(this.nameExp, this.descriptionExp);
+    const newExperience = new Experience(this.nameExperience, this.titleExperience, this.yearExperience, this.countryExperience, this.descriptionExperience);
     this.experienceService.save(newExperience).subscribe(
       data => {
         alert("Experiencia añadida");

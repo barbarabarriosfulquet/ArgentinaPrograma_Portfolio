@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/workexp")
+@RequestMapping("/experience")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ExperienceController {
 
@@ -52,34 +52,34 @@ public class ExperienceController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody DtoExperience dtoexp) {
-        if (StringUtils.isBlank(dtoexp.getNameExp())) {
+    public ResponseEntity<?> create(@RequestBody DtoExperience dtoexperience) {
+        if (StringUtils.isBlank(dtoexperience.getNameExperience())) {
             return new ResponseEntity(new Message("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (impExperienceService.existsByNameExp(dtoexp.getNameExp())) {
+        if (impExperienceService.existsByNameExperience(dtoexperience.getNameExperience())) {
             return new ResponseEntity(new Message("Experiencia existente"), HttpStatus.BAD_REQUEST);
         }
 
-        Experience experience = new Experience(dtoexp.getNameExp(), dtoexp.getDescriptionExp());
+        Experience experience = new Experience(dtoexperience.getNameExperience(), dtoexperience.getTitleExperience(), dtoexperience.getYearExperience(), dtoexperience.getCountryExperience(), dtoexperience.getDescriptionExperience());
         impExperienceService.save(experience);
 
         return new ResponseEntity(new Message("Experiencia agregada"), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperience dtoexp) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperience dtoexperience) {
         if (!impExperienceService.existsById(id)) {
             return new ResponseEntity(new Message("Id inexistente"), HttpStatus.BAD_REQUEST);
         }
-        if (impExperienceService.existsByNameExp(dtoexp.getNameExp()) && impExperienceService.getByNameExp(dtoexp.getNameExp()).get().getId() != id) {
+        if (impExperienceService.existsByNameExperience(dtoexperience.getNameExperience()) && impExperienceService.getByNameExperience(dtoexperience.getNameExperience()).get().getId() != id) {
             return new ResponseEntity(new Message("Experiencia existente"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank(dtoexp.getNameExp())) {
+        if (StringUtils.isBlank(dtoexperience.getNameExperience())) {
             return new ResponseEntity(new Message("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         Experience experience = impExperienceService.getOne(id).get();
-        experience.setNameExp(dtoexp.getNameExp());
-        experience.setDescriptionExp((dtoexp.getDescriptionExp()));
+        experience.setNameExperience(dtoexperience.getNameExperience());
+        experience.setDescriptionExperience((dtoexperience.getDescriptionExperience()));
 
         impExperienceService.save(experience);
         return new ResponseEntity(new Message("Experiencia actualizada"), HttpStatus.OK);
