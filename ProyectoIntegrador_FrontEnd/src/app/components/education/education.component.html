@@ -1,28 +1,54 @@
 <div class="container-fluid">
-    <div class="row">
-        <h1>EDUCACIÓN Y FORMACIÓN</h1>
-        <hr class="custom-divider">
-        <div class="col-12">
-            <ul>
-                <li><h2>Educación y formación 1º</h2></li>
-                <h3>Período</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus omnis dolores animi, recusandae,
-                    amet
-                    ducimus, neque vero error velit accusamus suscipit sapiente aliquam atque rerum fugit ea magni eaque
-                    tempora!</p>
-                <li><h2>Educación y formación 2º</h2></li>
-                <h3>Período</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus omnis dolores animi, recusandae,
-                    amet
-                    ducimus, neque vero error velit accusamus suscipit sapiente aliquam atque rerum fugit ea magni eaque
-                    tempora!</p>
-                <li><h2>Educación y formación 3º</h2></li>
-                <h3>Período</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus omnis dolores animi, recusandae,
-                    amet
-                    ducimus, neque vero error velit accusamus suscipit sapiente aliquam atque rerum fugit ea magni eaque
-                    tempora!</p>
-            </ul>
-        </div>
+  <div class="row">
+    <div *ngIf="!isLogged" class="col-lg-12">
+      <h1 class="text-center">EDUCACIÓN Y FORMACIÓN</h1>
     </div>
+    <div *ngIf="isLogged" class="col-lg-11">
+      <h1 class="text-center">EDUCACIÓN Y FORMACIÓN</h1>
+    </div>
+    <div *ngIf="isLogged" class="col-lg-1 d-flex align-items-center justify-content-end">
+      <button type="button" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        class="btn btn-outline-secondary btn-sm" routerLink="/newEducation" *ngIf="isLogged">
+        <i class="bi bi-plus-square"></i>
+      </button>
+    </div>
+    <hr class="custom-divider">
+    <div class="col-12">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let Education of education">
+            <td class="col-auto">
+              <h2>{{Education.nameEducation}}</h2>
+            </td>
+            <td class="col-1">
+              <h3>{{Education.yearEducation}}</h3>
+            </td>
+            <td class="col-auto">
+              <h3>{{Education.countryEducation}}</h3>
+            </td>
+            <td class="col-auto">
+              <h3>{{Education.titleEducation}}</h3>
+            </td>
+            <td class="col-5">
+              <h3>{{Education.descriptionEducation}}</h3>
+            </td>
+            <td class="col-auto custom-td" *ngIf="isLogged">
+              <div class="d-flex align-items-center justify-content-end">
+                <button class="btn btn-outline-secondary btn-sm"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  routerLink="/editEducation/{{Education.id}}">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-left: 5px;"
+                  (click)="delete(Education.id)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
