@@ -1,13 +1,12 @@
 package com.barbarabarriosfulquet.portfolio.Entity;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Experience implements Serializable {
+public class Experience{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,13 +43,13 @@ public class Experience implements Serializable {
     public void setNameExperience(String nameExperience) {
         this.nameExperience = nameExperience;
     }
-    
+
     public String getTitleExperience() {
         return titleExperience;
     }
 
-    public void setTitleExperience(String nameExperience) {
-        this.titleExperience = nameExperience;
+    public void setTitleExperience(String titleExperience) {
+        this.titleExperience = titleExperience;
     }
 
     public String getYearExperience() {
@@ -76,4 +75,5 @@ public class Experience implements Serializable {
     public void setDescriptionExperience(String descriptionExperience) {
         this.descriptionExperience = descriptionExperience;
     }
+
 }
