@@ -7,10 +7,12 @@ import javax.persistence.Id;
 
 @Entity
 public class Education {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nameEducation;
+    private String titleEducation;
     private String yearEducation;
     private String countryEducation;
     private String descriptionEducation;
@@ -18,8 +20,9 @@ public class Education {
     public Education() {
     }
 
-    public Education(String nameEducation, String yearEducation, String countryEducation, String descriptionEducation, String descriptionEducation1) {
+    public Education(String nameEducation, String titleEducation, String yearEducation, String countryEducation, String descriptionEducation) {
         this.nameEducation = nameEducation;
+        this.titleEducation = titleEducation;
         this.yearEducation = yearEducation;
         this.countryEducation = countryEducation;
         this.descriptionEducation = descriptionEducation;
@@ -40,7 +43,15 @@ public class Education {
     public void setNameEducation(String nameEducation) {
         this.nameEducation = nameEducation;
     }
-    
+
+    public String getTitleEducation() {
+        return titleEducation;
+    }
+
+    public void setTitleEducation(String titleEducation) {
+        this.titleEducation = titleEducation;
+    }
+
     public String getYearEducation() {
         return yearEducation;
     }
@@ -48,7 +59,7 @@ public class Education {
     public void setYearEducation(String yearEducation) {
         this.yearEducation = yearEducation;
     }
-    
+
     public String getCountryEducation() {
         return countryEducation;
     }
