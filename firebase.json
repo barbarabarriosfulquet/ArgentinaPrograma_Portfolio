@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/proyecto-integrador-front-end",
+    "public": "ProyectoIntegrador_FrontEnd/dist/proyecto-integrador-front-end",
     "ignore": [
       "firebase.json",
       "**/.*",
